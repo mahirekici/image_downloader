@@ -133,14 +133,15 @@ class ImageDownloaderPlugin : FlutterPlugin, ActivityAware, MethodCallHandler {
                 val permissionCallback =
                     applicationContext?.let { CallbackImpl(call, result, channel, it) }
                 this.callback = permissionCallback
-                if (inPublicDir) {
-                    this.permissionListener.callback = permissionCallback
-                    if (permissionListener.alreadyGranted()) {
-                        permissionCallback?.granted()
-                    }
-                } else {
-                    permissionCallback?.granted()
-                }
+//                if (inPublicDir) {
+//                    this.permissionListener.callback = permissionCallback
+//                    if (permissionListener.alreadyGranted()) {
+//                        permissionCallback?.granted()
+//                    }
+//                } else {
+//                    permissionCallback?.granted()
+//                }
+                permissionCallback?.granted()
             }
             "cancel" -> {
                 callback?.downloader?.cancel()
